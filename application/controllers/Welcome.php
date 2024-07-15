@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('back_office/pages/formulaire_service.php');
+		$this->load->view('back_office/pages/calendar.php');
 	}
 }
