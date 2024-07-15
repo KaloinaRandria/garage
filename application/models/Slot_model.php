@@ -27,7 +27,15 @@ class Slot_model extends CI_Model
 
 	function checkSlotLibre($dateDebut, $dateFin)
 	{
-		
+		$this->load->model('slot_model');
+		$slots = $this->slot_model->getSlots();
+		foreach($slots  as $slot) {
+			$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut, $dateFin));
+			if ($query->num_rows() == 1) {
+				return $query->result_array();
+			}
+		}
+		return null;
 	}
 
 	function searchDateFin($dateDebut, $idService)
@@ -57,5 +65,7 @@ class Slot_model extends CI_Model
 			foreach($reservations as $reservation) {
 				$sql = $sql . " and (" . $dateDebut . " not between " . $reservation['date_heure_debut'] . " and " . $reservation['date_heure_fin'] . ") and (" . $dateFin . " not between " . $reservation['date_heure_debut'] . " and " . $reservation['date_heure_fin'] . ")";
 			}
+			$sql = $sql . " limit 1 ";
+			return $sql;
 	}
 }
