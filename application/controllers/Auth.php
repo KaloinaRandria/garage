@@ -12,8 +12,9 @@ class Auth extends CI_Controller
 		parent::__construct();
 	}
 
-	function login()
+	function index()
 	{
+		$this->load->view('front_office/login/login');
 	}
 
 	function checkLogin()
@@ -21,12 +22,12 @@ class Auth extends CI_Controller
 		$numero = $this->input->post('numero');
 		$type = $this->input->post('type');
 		if ($this->client_model->checkLogin($numero, $type)) {
-			$this->session->set_userdata('numero',$numero);
-			$this->session->set_userdata('type',$type);
+			$this->session->set_userdata('numero', $numero);
+			$this->session->set_userdata('type', $type);
 			redirect('front_office/pages/accueil');
 		} else {
-			$this->session->set_flashdata('error','Immatriculation Invalide ou Type Invalide');
-			redirect('front_office/login/login');	
+			$this->session->set_flashdata('error', 'Immatriculation Invalide ou Type Invalide');
+			redirect('front_office/login/login');
 		}
 	}
 }
