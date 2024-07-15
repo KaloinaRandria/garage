@@ -26,10 +26,10 @@ class Auth extends CI_Controller
 		if ($status == true) {
 			$this->session->set_userdata('numero', $numero);
 			$this->session->set_userdata('type', $type);
-			redirect('front_office/pages/accueil');
+			redirect('accueil');
 		} else {
 			$this->session->set_flashdata('error', 'Immatriculation Invalide ou Type Invalide');
-			redirect('front_office/login/login');
+			redirect('auth');
 		}
 	}
 }
