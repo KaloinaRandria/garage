@@ -39,12 +39,12 @@ class Reservation extends CI_Controller
         // Add the interval to the date
         $dateHeure->add($interval);
 
-        $data = $this->slot_model->checkSlotLibre($dateHeure->format('Y-m-d H:i:s'), $service);
+        $data = $this->slot_model->queryDynamic($dateHeure->format('Y-m-d H:i:s'), $service);
 
-        if ($data == null) {
+        if ($data == -1) {
             echo "false";
         } else {
-            echo "true";
+            var_dump($data);
         }
 	}
 }

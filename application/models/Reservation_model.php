@@ -10,5 +10,10 @@ class Reservation_model extends CI_Model {
 		$query = $this->db->get('reservation');
 		return $query->result(); // Ensure it returns an array of objects
 	}
+
+	function getWhereReservation($condition) {
+		$query = $this->db->get_where('reservation' , $condition);
+		return $query->result();
+	}
 }
 ?>
