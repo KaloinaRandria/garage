@@ -79,7 +79,7 @@
 					</div>
 					<!-- /Logo -->
 					<h4 class="mb-2">Bienvenue a Garage 👋</h4>
-					<form id="formAuthentication" class="mb-3" action="<?= base_url()?>Auth/checkLogin" method="post">
+					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>Auth/checkLogin" method="post">
 						<div class="mb-3">
 							<label for="numero" class="form-label">Numero Vehicule</label>
 							<input
@@ -92,24 +92,16 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="numero" class="form-label">Type Vehicule</label>
-							<input
-								type="text"
-								class="form-control"
-								id="type"
-								name="type"
-								autofocus
-							/>
-						</div>
-						<div class="mb-3">
 									<label for="defaultSelect" class="form-label">Type Vehicule</label>
 									<div class="col-md-10">
-										<?php foreach($client as $row) { ?>
-										<select id="defaultSelect" class="form-select" name="">
-											<option></option>
-											<option value="<?=$row['id']?>"><?= $row['intitule']?></option>
+										
+										<select id="defaultSelect" class="form-select" name="type">
+										<option></option>
+										<?php for ($i = 0; $i < count($types); $i++) { ?>
+												<option value="<?= $types[$i]['id'] ?>"><?= $types[$i]['intitule'] ?></option>
+											<?php } ?>
+
 										</select>
-										<?php } ?>
 									</div>
 								</div>
 						
