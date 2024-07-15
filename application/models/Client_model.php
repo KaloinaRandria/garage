@@ -1,21 +1,17 @@
 <?php
 class Client_model extends CI_Model
 {
-	function __construct()
-	{
-		parent::__construct();
-	}
 
 	function checkLogin($numero, $type)
 	{
 		$this->db->where('numero', $numero);
-		$query = $this->getClients();
+		$query = $this->db->get('client');
 		if ($query->num_rows() == 1) {
 			$client = $query->row();
-			if ($client->type == $type) {
+			if ($client->id_type == $type) {
 				return true;
 			} else {
-				$this->session->set_flashdata('error', 'Type de Voiture non conforme au numero d immatriculation');
+				// $this->session->set_flashdata('error', 'Type de Voiture non conforme au numero d immatriculation');
 				return false;
 			}
 		} else {
@@ -28,7 +24,7 @@ class Client_model extends CI_Model
 	{
 		$data = array(
 			'numero' => $numero,
-			'type' => $type,
+			'id_type' => $type,
 		);
 		$this->db->insert('client', $data);
 		if ($this->db->affected_rows() >= 0) {
