@@ -27,7 +27,7 @@
 		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
 	/>
 
-	<title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+	<title>Projet Final S4 SI</title>
 
 	<meta name="description" content="" />
 
@@ -78,46 +78,46 @@
 						<span class="app-brand-text demo text-body fw-bolder">Car garage</span>
 					</div>
 					<!-- /Logo -->
-					<h4 class="mb-2">Welcome to Car garage! 👋</h4>
-					<form id="formAuthentication" class="mb-3" action="<?php echo base_url('front_office/pages/acceuil.php'); ?>" method="POST">
+					<h4 class="mb-2">Bienvenue a Garage 👋</h4>
+					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>Auth/checkLogin" method="post">
 						<div class="mb-3">
-							<label for="num" class="form-label">Numero Vehicule</label>
+							<label for="numero" class="form-label">Numero Vehicule</label>
 							<input
 								type="text"
 								class="form-control"
-								id="num"
+								id="numero"
 								name="numero"
 								autofocus
 							/>
 						</div>
-						<div class="mb-3 form-password-toggle">
-							<div class="d-flex justify-content-between">
-								<label class="form-label" for="type">Type</label>
-								<a href="auth-forgot-password-basic.html">
-									<small>Forgot Password?</small>
-								</a>
-							</div>
-							<div class="input-group input-group-merge">
-								<input
-									type="password"
-									id="type"
-									class="form-control"
-									name="type"
-								/>
-								<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-							</div>
+
+						<div class="mb-3">
+									<label for="defaultSelect" class="form-label">Type Vehicule</label>
+									<div class="col-md-10">
+										
+										<select id="defaultSelect" class="form-select" name="type">
+										<option></option>
+										<?php for ($i = 0; $i < count($types); $i++) { ?>
+												<option value="<?= $types[$i]['id'] ?>"><?= $types[$i]['intitule'] ?></option>
+											<?php } ?>
+
+										</select>
+									</div>
 						</div>
 						<div class="mb-3">
-							<button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+					
+					<?php if ($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger mt-3" role="alert">
+						Failed !
+					</div>
+					<?php } ?> 
+				</div>
+						
+						<div class="mb-3">
+							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>
 						</div>
 					</form>
 
-					<p class="text-center">
-						<span>New on our platform?</span>
-						<a href="auth-register-basic.html">
-							<span>Create an account</span>
-						</a>
-					</p>
 				</div>
 			</div>
 			<!-- /Register -->
@@ -126,15 +126,6 @@
 </div>
 
 <!-- / Content -->
-
-<div class="buy-now">
-	<a
-		href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-		target="_blank"
-		class="btn btn-danger btn-buy-now"
-	>Upgrade to Pro</a
-	>
-</div>
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->

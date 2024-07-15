@@ -35,7 +35,7 @@
 					<div class="alert alert-danger mt-3" role="alert">
 						Failed !
 					</div>
-					<?php } ?>
+					<?php } ?> 
 				</div>
 			</div>
 		</div>
