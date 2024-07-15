@@ -14,5 +14,10 @@
 			return $query->result_array();
 		}
 
+		function getServiceById($id) {
+			$this->db->where('id',$id);
+			$query = $this->db->get('garage');
+			return $query->row();
+		}
 	}
 ?>
