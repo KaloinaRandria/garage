@@ -18,7 +18,7 @@
 		function getSlotById($id) {
 			$this->db->where('id',$id);
 			$query = $this->db->get('slot');
-			return $query->
+			return $query->row();
 		}
 	}
 
