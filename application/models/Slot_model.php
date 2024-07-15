@@ -25,12 +25,13 @@ class Slot_model extends CI_Model
 		return $query->row();
 	}
 
-	function checkSlotLibre($dateDebut, $dateFin)
+	function checkSlotLibre($dateDebut ,$idService)
 	{
 		$this->load->model('slot_model');
 		$slots = $this->slot_model->getSlots();
+		
 		foreach($slots  as $slot) {
-			$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut, $dateFin));
+			$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut,$idService));
 			if ($query->num_rows() == 1) {
 				return $query->result_array();
 			}
@@ -56,12 +57,12 @@ class Slot_model extends CI_Model
 		return $dateFin;
 	}
 
-	function dynamicQuery($idSlots , $dateDebut, $dateFin)
+	function dynamicQuery($idSlots , $dateDebut, $idService)
 	{
 			$sql = " select id_slot from reservation where 1=1 ";
 			$this->load->model('Reservation_model');
 			$reservations = $this->reservation_model->getReservationBySlot($idSlots);
-
+			$dateFin = $this->searchDateFin($dateDebut,$idService);
 			foreach($reservations as $reservation) {
 				$sql = $sql . " and (" . $dateDebut . " not between " . $reservation['date_heure_debut'] . " and " . $reservation['date_heure_fin'] . ") and (" . $dateFin . " not between " . $reservation['date_heure_debut'] . " and " . $reservation['date_heure_fin'] . ")";
 			}
