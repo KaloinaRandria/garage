@@ -31,7 +31,7 @@ class Auth extends CI_Controller
 			redirect('accueil');
 		} else {
 			$this->session->set_flashdata('error', 'Immatriculation Invalide ou Type Invalide');
-			$data = $data['types'] = $this->type_model->getTypes();
+			$data['types'] = $this->type_model->getTypes();
 			$this->load->view('front_office/login/login',$data);
 		}
 	}
