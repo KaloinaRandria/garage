@@ -1,16 +1,40 @@
-<!doctype html>
-<html lang="en">
+<!-- Menu -->
 
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+	<div class="app-brand demo">
+		<a href="" class="app-brand-link">
+			<span class="app-brand-text demo menu-text fw-bolder ms-2">Car garage</span>
+		</a>
 
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+			<i class="bx bx-chevron-left bx-sm align-middle"></i>
+		</a>
+	</div>
 
-	<title>Hello, world!</title>
-</head>
+	<div class="menu-inner-shadow"></div>
 
-<body>
-	<h1 class="text-center">CRUD OPERATIONS</h1>
+	<ul class="menu-inner py-1">
+		<!-- Dashboard -->
+		<li class="menu-item">
+			<a href="" class="menu-link">
+				<i class="menu-icon tf-icons bx bx-home-circle"></i>
+				<div data-i18n="Analytics">Acceuil</div>
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="" class="menu-link">
+				<i class="menu-icon tf-icons bx bx-home-circle"></i>
+				<div data-i18n="Analytics">Reservation</div>
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="" class="menu-link">
+				<i class="menu-icon tf-icons bx bx-home-circle"></i>
+				<div data-i18n="Analytics">Information</div>
+			</a>
+		</li>
+	</ul>
+</aside>
+<!-- / Menu -->
+
+
