@@ -82,7 +82,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="" method="post">
+				<form action="<?=base_url()?>reservation/verificationSlot" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
