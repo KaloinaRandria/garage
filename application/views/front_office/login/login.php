@@ -103,7 +103,15 @@
 
 										</select>
 									</div>
-								</div>
+						</div>
+						<div class="mb-3">
+					
+					<?php if ($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger mt-3" role="alert">
+						Failed !
+					</div>
+					<?php } ?> 
+				</div>
 						
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>
