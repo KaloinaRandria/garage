@@ -82,7 +82,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="" method="">
+				<form action="" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
@@ -91,23 +91,24 @@
 								<div class="mb-3 row">
 									<label for="html5-date-input" class="form-label">Date</label>
 									<div class="col-md-10">
-										<input class="form-control" type="date" id="html5-date-input" name=""/>
+										<input class="form-control" type="date" id="html5-date-input" name="date"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="html5-time-input" class="form-label">Heure</label>
 									<div class="col-md-10">
-										<input class="form-control" type="time" id="html5-time-input" name=""/>
+										<input class="form-control" type="time" id="html5-time-input" name="heure"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="defaultSelect" class="form-label">Type</label>
 									<div class="col-md-10">
-										<select id="defaultSelect" class="form-select" name="">
-											<option></option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
+										<select id="defaultSelect" class="form-select" name="type">
+										<option></option>
+										<?php for ($i = 0; $i < count($types); $i++) { ?>
+												<option value="<?= $types[$i]['id'] ?>"><?= $types[$i]['intitule'] ?></option>
+											<?php } ?>
+
 										</select>
 									</div>
 								</div>
