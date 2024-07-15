@@ -6,6 +6,11 @@
 		}
 
 		function index() {
+
+			$this->load->view('back_office/login/login');
+		}
+
+		function checkLogAdmin() {
 			
 		}
 	}

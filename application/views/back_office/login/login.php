@@ -75,10 +75,10 @@
 				<div class="card-body">
 					<!-- Logo -->
 					<div class="app-brand justify-content-center">
-						<span class="app-brand-text demo text-body fw-bolder">Car garage</span>
+						<span class="app-brand-text demo text-body fw-bolder">Administrateur</span>
 					</div>
 					<!-- /Logo -->
-					<h4 class="mb-2">Welcome to Car garage! 👋</h4>
+					<h4 class="mb-2">Bienvenue dans garage! 👋</h4>
 					<form id="formAuthentication" class="mb-3" action="<?php echo base_url('front_office/pages/acceuil.php'); ?>" method="POST">
 						<div class="mb-3">
 							<label for="mail" class="form-label">mail</label>
@@ -92,7 +92,7 @@
 						</div>
 						<div class="mb-3 form-password-toggle">
 							<div class="d-flex justify-content-between">
-								<label class="form-label" for="password">Password</label>
+								<label class="form-label" for="password">mot de passe</label>
 							</div>
 							<div class="input-group input-group-merge">
 								<input
@@ -105,7 +105,18 @@
 							</div>
 						</div>
 						<div class="mb-3">
-							<button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+					
+					<?php if ($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger mt-3" role="alert">
+						Failed !
+					</div>
+					<?php } ?> 
+				</div>
+						<div class="mb-3">
+							<a href="<?= base_url() ?>auth">Se connecter en tant que Client</a>
+						</div>
+						<div class="mb-3">
+							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>
 						</div>
 					</form>
 				</div>

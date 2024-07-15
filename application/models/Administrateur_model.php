@@ -11,5 +11,9 @@
 			$query = $this->db->get('administrateur');
 			return $query->row();
 		}
+
+		function checkLogAdmin() {
+
+		}
 	}
 ?>
