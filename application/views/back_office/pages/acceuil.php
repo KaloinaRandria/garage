@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -71,55 +69,52 @@
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
 
-		<?php $this->load->view('includes/header') ?>
+		<?php $this->load->view('back_office/includes/header') ?>
 		<!-- Layout container -->
 		<div class="layout-page">
 			<!-- Navbar -->
 
-			<?php $this->load->view('includes/navbar') ?>
 
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
-				<!-- content -->
-
-				<form action="" method="">
-					<div class="col-5 mt-5 m-auto">
-						<!-- HTML5 Inputs -->
-						<div class="card mb-4">
-							<h5 class="card-header">Reservation</h5>
-							<div class="card-body">
-								<div class="mb-3 row">
-									<label for="html5-date-input" class="form-label">Date</label>
-									<div class="col-md-10">
-										<input class="form-control" type="date" id="html5-date-input" name=""/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="html5-time-input" class="form-label">Heure</label>
-									<div class="col-md-10">
-										<input class="form-control" type="time" id="html5-time-input" name=""/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="defaultSelect" class="form-label">Type</label>
-									<div class="col-md-10">
-										<select id="defaultSelect" class="form-select" name="">
-											<option></option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
-										</select>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<div class="col-3 m-auto">
-										<a><button class="btn btn-outline-primary">Valider</button></a>
-									</div>
-								</div>
-							</div>
+				<!-- Content -->
+				<div class="container-xxl flex-grow-1 container-p-y">
+					<div class="card mb-5">
+						<h5 class="card-header">Table Basic</h5>
+						<div class="table-responsive text-nowrap">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>id</th>
+									<th>Reparation</th>
+									<th>Duree</th>
+									<th>Prix</th>
+									<th>Modif</th>
+									<th>Supp</th>
+								</tr>
+								</thead>
+								<tbody class="table-border-bottom-0">
+								<!-- boucle -->
+								<tr>
+									<td><strong>1</strong></td>
+									<td>Reparation</td>
+									<td>Duree</td>
+									<td>10000</td>
+									<td><a><button class="btn btn-outline-success">Modifier</button></a></td>
+									<td><a><button class="btn btn-danger">Supprimer</button></a></td>
+								</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-				</form>
+					<div class="row">
+						<a><button class="btn btn-success">Ajouter</button></a>
+					</div>
+				</div>
+
+				<!--/ Basic Bootstrap Table -->
+
+
 
 				<!-- / Content -->
 
@@ -127,12 +122,11 @@
 				<div class="content-backdrop fade"></div>
 			</div>
 			<!-- Content wrapper -->
-				<!-- Footer -->
-				<?php $this->load->view('includes/footer'); ?>
-				<!-- / Footer -->
+			<!-- Footer -->
+			<?php $this->load->view('includes/footer'); ?>
+			<!-- / Footer -->
 		</div>
 		<!-- / Layout page -->
-
 	</div>
 
 	<!-- Overlay -->
@@ -163,4 +157,3 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
-

@@ -71,12 +71,10 @@
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
 
-		<?php $this->load->view('includes/header') ?>
+		<?php $this->load->view('back_office/includes/header') ?>
 		<!-- Layout container -->
 		<div class="layout-page">
 			<!-- Navbar -->
-
-			<?php $this->load->view('includes/navbar') ?>
 
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
@@ -86,29 +84,24 @@
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
-							<h5 class="card-header">Reservation</h5>
+							<h5 class="card-header">Service</h5>
 							<div class="card-body">
 								<div class="mb-3 row">
-									<label for="html5-date-input" class="form-label">Date</label>
+									<label for="reparation" class="form-label">Reparation</label>
 									<div class="col-md-10">
-										<input class="form-control" type="date" id="html5-date-input" name=""/>
+										<input class="form-control" type="text" id="reparation" name=""/>
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label for="html5-time-input" class="form-label">Heure</label>
+									<label for="duree" class="form-label">Duree</label>
 									<div class="col-md-10">
-										<input class="form-control" type="time" id="html5-time-input" name=""/>
+										<input class="form-control" type="time" id="duree" name=""/>
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label for="defaultSelect" class="form-label">Type</label>
+									<label for="prix" class="form-label">Prix</label>
 									<div class="col-md-10">
-										<select id="defaultSelect" class="form-select" name="">
-											<option></option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
-										</select>
+										<input class="form-control" type="number" id="prix" name="" min="0"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
@@ -127,9 +120,9 @@
 				<div class="content-backdrop fade"></div>
 			</div>
 			<!-- Content wrapper -->
-				<!-- Footer -->
-				<?php $this->load->view('includes/footer'); ?>
-				<!-- / Footer -->
+			<!-- Footer -->
+			<?php $this->load->view('includes/footer'); ?>
+			<!-- / Footer -->
 		</div>
 		<!-- / Layout page -->
 
