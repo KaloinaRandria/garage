@@ -82,7 +82,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="" method="post">
+				<form action="<?=base_url()?>reservation/verificationSlot" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
@@ -101,12 +101,12 @@
 									</div>
 								</div>
 								<div class="mb-3 row">
-									<label for="defaultSelect" class="form-label">Type</label>
+									<label for="defaultSelect" class="form-label">Service</label>
 									<div class="col-md-10">
-										<select id="defaultSelect" class="form-select" name="type">
+										<select id="defaultSelect" class="form-select" name="service">
 										<option></option>
-										<?php for ($i = 0; $i < count($types); $i++) { ?>
-												<option value="<?= $types[$i]['id'] ?>"><?= $types[$i]['intitule'] ?></option>
+										<?php for ($i = 0; $i < count($services); $i++) { ?>
+												<option value="<?= $services[$i]['id'] ?>"><?= $services[$i]['intitule'] ?></option>
 											<?php } ?>
 
 										</select>
