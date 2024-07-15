@@ -10,18 +10,21 @@ class Auth extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('client_model');  
 	}
 
 	function index()
 	{
-		$this->load->view('front_office/login/login');
+		$data['client'] = $this->client_model->getClients();
+		$this->load->view('front_office/login/login' , $data);
 	}
 
 	function checkLogin()
 	{
 		$numero = $this->input->post('numero');
 		$type = $this->input->post('type');
-		if ($this->client_model->checkLogin($numero, $type)) {
+		$status = $this->client_model->checkLogin($numero, $type); 
+		if ($status == true) {
 			$this->session->set_userdata('numero', $numero);
 			$this->session->set_userdata('type', $type);
 			redirect('front_office/pages/accueil');
