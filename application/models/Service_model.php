@@ -8,7 +8,11 @@
 				return false;
 			}
 		}
-
 		
+		function getServices() {
+			$query = $this->db->get('garage');
+			return $query->result_array();
+		}
+
 	}
 ?>
