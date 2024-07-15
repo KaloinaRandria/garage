@@ -70,19 +70,47 @@ class Slot_model extends CI_Model
 	function dynamicQuery($idSlots, $dateDebut, $idService)
     {
         $this->load->model('reservation_model');
-        $sql = "SELECT id_slot FROM reservation WHERE 1=1 AND DATE(date_heure_debut) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'";
-        $reservations = $this->reservation_model->getReservationBySlots($idSlots);
+        $sql = "SELECT id_slot FROM reservation WHERE 1=1 AND DATE(date_heure_debut) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'  AND DATE(date_heure_fin) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'";
+        $reservations = $this->reservation_model->getWhereReservation(" id_slot = ". $idSlots . " AND date_heure_debut = '" .(new DateTime($dateDebut))->format('Y-m-d')."'");
         $dateFin = $this->searchDateFin($dateDebut, $idService);
-        
+        echo $idSlots;
         foreach ($reservations as $reservation) {
-            $sql .= " AND ('" . $dateDebut . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
-            $sql .= " AND ('" . $dateFin->format('Y-m-d H:i:s') . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
-			$sql .= " AND ('" . $reservation->date_heure_debut . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
-			$sql .= " AND ('" . $reservation->date_heure_fin . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
+			
+				$sql .= " AND ('" . $dateDebut . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
+				$sql .= " AND ('" . $dateFin->format('Y-m-d H:i:s') . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
+				$sql .= " AND ('" . $reservation->date_heure_debut . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
+				$sql .= " AND ('" . $reservation->date_heure_fin . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
+				// echo "resa debut " . $reservation->date_heure_debut . "\\";
+				// echo "resa fin " . $reservation->date_heure_fin . "\\";
+           
 
         }
         
         $sql .= " LIMIT 1";
+		//  echo $sql;
+		// echo $dateDebut . "\\";
+		// echo $dateFin->format('Y-m-d H:i:s') . "\\";
+		
         return $sql;
     }
+
+	function queryDynamic($date_heure ,$idService) {
+		$to_check = (new DateTime($date_heure))->format('Y-m-d');
+		$fin = $this->searchDateFin($date_heure, $idService)->format('Y-m-d H:i:s');
+		$sql = 'CREATE OR REPLACE VIEW v_slot_indispo AS
+		SELECT id_slot, MAX(date_heure_fin) AS fin
+		FROM reservation
+		WHERE (date_heure_debut <=\''. $to_check . '\' AND date_heure_fin >= \'' . $to_check . '\' )
+		OR (date_heure_debut <=\''. $fin . '\' AND date_heure_fin >= \''. $fin . '\')
+		GROUP BY id_slot
+		ORDER BY fin ASC';
+		$this->db->query($sql);
+		$query = $this->db->query('SELECT id FROM slot LEFT JOIN v_slot_indispo si on slot.id = si.id_slot WHERE si.fin is NULL LIMIT 1');
+		$result = $query->row_array();
+		if ($result == null) {
+			return -1;
+		
+		}
+		return $result['id'];
+	}
 }
