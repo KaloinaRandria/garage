@@ -22,7 +22,7 @@
 			</a>
 		</li>
 		<li class="menu-item">
-			<a href="" class="menu-link">
+			<a href="<?=base_url()?>reservation" class="menu-link">
 				<i class="menu-icon tf-icons bx bx-home-circle"></i>
 				<div data-i18n="Analytics">Reservation</div>
 			</a>
