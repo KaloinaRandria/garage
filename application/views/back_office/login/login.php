@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -16,7 +14,7 @@
 <!-- beautify ignore:start -->
 <html
 	lang="en"
-	class="light-style layout-menu-fixed"
+	class="light-style customizer-hide"
 	dir="ltr"
 	data-theme="theme-default"
 	data-assets-path="../assets/"
@@ -29,7 +27,7 @@
 		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
 	/>
 
-	<title>Cards basic - UI elements | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+	<title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
 	<meta name="description" content="" />
 
@@ -67,80 +65,57 @@
 </head>
 
 <body>
-<!-- Layout wrapper -->
-<div class="layout-wrapper layout-content-navbar">
-	<div class="layout-container">
+<!-- Content -->
 
-		<?php $this->load->view('includes/header') ?>
-		<!-- Layout container -->
-		<div class="layout-page">
-			<!-- Navbar -->
-
-			<?php $this->load->view('includes/navbar') ?>
-
-			<!-- Content wrapper -->
-			<div class="content-wrapper">
-				<!-- content -->
-
-				<form action="<?=base_url()?>reservation/verificationSlot" method="post">
-					<div class="col-5 mt-5 m-auto">
-						<!-- HTML5 Inputs -->
-						<div class="card mb-4">
-							<h5 class="card-header">Reservation</h5>
-							<div class="card-body">
-								<div class="mb-3 row">
-									<label for="html5-date-input" class="form-label">Date</label>
-									<div class="col-md-10">
-										<input class="form-control" type="date" id="html5-date-input" name="date"/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="html5-time-input" class="form-label">Heure</label>
-									<div class="col-md-10">
-										<input class="form-control" type="time" id="html5-time-input" name="heure"/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="defaultSelect" class="form-label">Service</label>
-									<div class="col-md-10">
-										<select id="defaultSelect" class="form-select" name="service">
-										<option></option>
-										<?php for ($i = 0; $i < count($services); $i++) { ?>
-												<option value="<?= $services[$i]['id'] ?>"><?= $services[$i]['intitule'] ?></option>
-											<?php } ?>
-
-										</select>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<div class="col-3 m-auto">
-										<a><button class="btn btn-outline-primary">Valider</button></a>
-									</div>
-								</div>
+<div class="container-xxl">
+	<div class="authentication-wrapper authentication-basic container-p-y">
+		<div class="authentication-inner">
+			<!-- Register -->
+			<div class="card">
+				<div class="card-body">
+					<!-- Logo -->
+					<div class="app-brand justify-content-center">
+						<span class="app-brand-text demo text-body fw-bolder">Car garage</span>
+					</div>
+					<!-- /Logo -->
+					<h4 class="mb-2">Welcome to Car garage! 👋</h4>
+					<form id="formAuthentication" class="mb-3" action="<?php echo base_url('front_office/pages/acceuil.php'); ?>" method="POST">
+						<div class="mb-3">
+							<label for="mail" class="form-label">mail</label>
+							<input
+								type="text"
+								class="form-control"
+								id="mail"
+								name="mail"
+								autofocus
+							/>
+						</div>
+						<div class="mb-3 form-password-toggle">
+							<div class="d-flex justify-content-between">
+								<label class="form-label" for="password">Password</label>
+							</div>
+							<div class="input-group input-group-merge">
+								<input
+									type="password"
+									id="password"
+									class="form-control"
+									name="password"
+								/>
+								<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
 							</div>
 						</div>
-					</div>
-				</form>
-
-				<!-- / Content -->
-
-
-				<div class="content-backdrop fade"></div>
+						<div class="mb-3">
+							<button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+						</div>
+					</form>
+				</div>
 			</div>
-			<!-- Content wrapper -->
-				<!-- Footer -->
-				<?php $this->load->view('includes/footer'); ?>
-				<!-- / Footer -->
+			<!-- /Register -->
 		</div>
-		<!-- / Layout page -->
-
 	</div>
-
-	<!-- Overlay -->
-	<div class="layout-overlay layout-menu-toggle"></div>
 </div>
-<!-- / Layout wrapper -->
 
+<!-- / Content -->
 
 
 <!-- Core JS -->
@@ -164,4 +139,3 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
-

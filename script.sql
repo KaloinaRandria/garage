@@ -29,3 +29,5 @@ create table reservation (
     id_slot int references slot(id),
     id_client int references client(id)
 );
+
+insert into type (intitule) values ('legere'),('4x4'),('utilitaire');
