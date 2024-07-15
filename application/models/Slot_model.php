@@ -70,7 +70,7 @@ class Slot_model extends CI_Model
 	function dynamicQuery($idSlots, $dateDebut, $idService)
     {
         $this->load->model('reservation_model');
-        $sql = "SELECT id_slot FROM reservation WHERE 1=1 AND DATE(date_heure_debut) = '".$dateDebut->format('y-m-d')."'";
+        $sql = "SELECT id_slot FROM reservation WHERE 1=1 AND DATE(date_heure_debut) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'";
         $reservations = $this->reservation_model->getReservationBySlots($idSlots);
         $dateFin = $this->searchDateFin($dateDebut, $idService);
         
