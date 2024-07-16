@@ -116,14 +116,14 @@
 									<td><strong><?=$row->date_heure_fin?></strong></td>
 									<td><?=$client->numero?></td> 
 									<td><?=$slot->intitule?></td> 
-									<td><?=$service->intitule?></td> 
-									<td><?=$service->prix?></td> 
+									<td><?=$row->intitule_service?></td> 
+									<td><?=$row->prix?></td> 
 									
 									<td>
 										<?php 
 										$paiement = $this->reservation_model->getPaiementByIdResa($row->id);
 										if($paiement == null) { ?>
-											<form action="<?= base_url()?>/Reservation/addPaiement/<?=$row->id?>" method="post">
+											<form action="<?= base_url()?>Reservation/addPaiement/<?=$row->id?>" method="post">
 												<div class="mb-3 row">
 													<div class="col-6">
 														<input class="form-control" type="date" min="0" name="date"/>
@@ -145,9 +145,6 @@
 								</tbody>
 							</table>
 						</div>
-					</div>
-					<div class="row">
-						<a href="<?= base_url()?>service/ajouterService"><button class="btn btn-success">Ajouter</button></a>
 					</div>
 				</div>
 
