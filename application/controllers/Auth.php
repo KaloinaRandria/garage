@@ -29,7 +29,7 @@ class Auth extends CI_Controller
 		if ($status == true) {
 			$this->session->set_userdata('numero', $numero);
 			$this->session->set_userdata('type', $type);
-			redirect('accueil');
+			redirect('Accueil');
 		} else {
 			$this->session->set_flashdata('error', 'Immatriculation Invalide ou Type Invalide');
 			$data['types'] = $this->type_model->getTypes();

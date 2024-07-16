@@ -1,0 +1,72 @@
+:root {
+    --light-clr: #f3f3f3;
+    --dark-clr: #252525;
+    --dark-light-clr: #3f3f3f;
+    --accent-clr: #df2012;
+    --red-clr: #8a150d;
+    --grey-clr : #bebebe;
+    --bg-clr : #1a1a1a;
+    --succes-clr : #138857;
+    --primary-clr : #1272c0;
+}
+
+
+main form {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em;
+    background: var(--bg-clr);
+    border-radius: 10px;
+    color: var(--light-clr);
+}
+
+main input,
+select {
+    width: 15em;
+    height: 2.5em;
+    background: var(--grey-clr);
+    border: none;
+    border-radius: 5px;
+    padding: .5em;
+    color: var(--dark-clr);
+}
+
+main form .input-form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .5em;
+    font-size: 15px;
+}   
+
+main form .input-form .input input {
+    width: 7em;
+    height: 2.5em;
+}
+
+main .button {
+    display: flex;
+    gap: 1em;
+}
+
+main button {
+    width: 7em;
+    height: 2.6em;
+    border: none;
+    border-radius: 10px;
+    color: var(--light-clr);
+    cursor: pointer;
+
+}
+
+main button[type="submit"] {
+    background: var(--succes-clr);
+}
+
+main button[type="reset"] {
+    background: var(--accent-clr);
+}

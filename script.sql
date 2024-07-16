@@ -21,11 +21,23 @@ create table slot (
     intitule varchar(100)
 );
 
+
+-- create table reservation (
+--     id int primary key auto_increment,
+--     date_heure_debut datetime,
+--     date_heure_fin datetime,
+--     id_service int references service(id),
+--     id_slot int references slot(id),
+--     id_client int references client(id)
+-- );
+
 create table reservation (
     id int primary key auto_increment,
     date_heure_debut datetime,
     date_heure_fin datetime,
     id_service int references service(id),
+    intitule_service varchar(100) ,
+    prix double,
     id_slot int references slot(id),
     id_client int references client(id)
 );
@@ -37,7 +49,21 @@ create table administrateur(
     password varchar(100)
 );
 
-insert into administrateur (nom, mail, password) values ('hamael', 'hamael', 'hamael');
+create table paiement(
+    id int primary key  auto_increment,
+    id_reservation int references reservation(id),
+    date_paiement date
+);
+
+insert into service(intitule,duree,prix) values
+('Entretien','03:30',85),
+('Reparation simple','01:30',85),
+('Reparation standard','02:00',852),
+('Reparation complexe','08:00',856);
+
+insert into type(intitule) values('leger'),('4X4'),('utilitaire');
+-- insert into administrateur (nom, mail, password) values ('hamael', 'hamael', 'hamael');
+insert into administrateur (nom, mail, password) values ('fifa', 'fifa', 'fifa');
 
 INSERT INTO client (numero, id_type) VALUES
 ('CLT001', 1),
@@ -54,15 +80,15 @@ INSERT INTO slot (intitule) VALUES ('a'),
                                    ('b'),
                                    ('c');
 
-INSERT INTO reservation (date_heure_debut, date_heure_fin, id_service, id_slot, id_client) VALUES
-('2024-07-15 09:00:00', '2024-07-15 10:00:00', 1, 1, 1),
-('2024-07-15 10:30:00', '2024-07-15 12:30:00', 2, 1, 2),
-('2024-07-15 13:00:00', '2024-07-15 14:30:00', 3, 2, 3),
-('2024-07-16 09:00:00', '2024-07-16 10:00:00', 1, 1, 4),
-('2024-07-16 10:30:00', '2024-07-16 12:30:00', 2, 1, 5),
-('2024-07-16 13:00:00', '2024-07-16 14:30:00', 3, 2, 6),
-('2024-07-17 09:00:00', '2024-07-17 10:00:00', 1, 1, 7),
-('2024-07-17 10:30:00', '2024-07-17 12:30:00', 2, 1, 8),
-('2024-07-17 13:00:00', '2024-07-17 14:30:00', 3, 3, 9);
+-- INSERT INTO reservation (date_heure_debut, date_heure_fin, id_service, id_slot, id_client) VALUES
+-- ('2024-07-15 09:00:00', '2024-07-15 10:00:00', 1, 1, 1),
+-- ('2024-07-15 10:30:00', '2024-07-15 12:30:00', 2, 1, 2),
+-- ('2024-07-15 13:00:00', '2024-07-15 14:30:00', 3, 2, 3),
+-- ('2024-07-16 09:00:00', '2024-07-16 10:00:00', 1, 1, 4),
+-- ('2024-07-16 10:30:00', '2024-07-16 12:30:00', 2, 1, 5),
+-- ('2024-07-16 13:00:00', '2024-07-16 14:30:00', 3, 2, 6),
+-- ('2024-07-17 09:00:00', '2024-07-17 10:00:00', 1, 1, 7),
+-- ('2024-07-17 10:30:00', '2024-07-17 12:30:00', 2, 1, 8),
+-- ('2024-07-17 13:00:00', '2024-07-17 14:30:00', 3, 3, 9);
 
 

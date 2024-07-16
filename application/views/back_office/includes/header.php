@@ -16,13 +16,13 @@
 	<ul class="menu-inner py-1">
 		<!-- Dashboard -->
 		<li class="menu-item">
-			<a href="" class="menu-link">
+			<a href="<?=base_url()?>Service/" class="menu-link">
 				<i class="menu-icon tf-icons bx bx-home-circle"></i>
 				<div data-i18n="Analytics">Service</div>
 			</a>
 		</li>
 		<li class="menu-item">
-			<a href="" class="menu-link">
+			<a href="<?=base_url()?>Reservation/devis" class="menu-link">
 				<i class="menu-icon tf-icons bx bx-home-circle"></i>
 				<div data-i18n="Analytics">Devis</div>
 			</a>
@@ -30,7 +30,18 @@
 		<li class="menu-item">
 			<a href="" class="menu-link">
 				<i class="menu-icon tf-icons bx bx-home-circle"></i>
+				<div data-i18n="Analytics">Dashboard</div>
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="" class="menu-link">
+				<i class="menu-icon tf-icons bx bx-home-circle"></i>
 				<div data-i18n="Analytics">Liste reservation</div>
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="<?=base_url()?>SuppData/supprimerDatabase" onclick="return confirm('Voulez vous confirmer la suppression')" class="menu-link">
+				<div data-i18n="Analytics">Supprimer les donnees</div>
 			</a>
 		</li>
 	</ul>

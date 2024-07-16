@@ -25,4 +25,11 @@ class Reservation_model extends CI_Model
 		$this->db->insert('reservation', $data);
 		return $this->db->insert_id();
 	}
+
+	function getPaiementByIdResa($idReservation) {
+		$this->db->where('id_reservation', $idReservation);
+		$query = $this->db->get('paiement');
+		return $query->row(); 
+	}
+	
 }

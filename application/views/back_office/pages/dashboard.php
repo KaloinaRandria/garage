@@ -14,7 +14,7 @@
 <!-- beautify ignore:start -->
 <html
 	lang="en"
-	class="light-style customizer-hide"
+	class="light-style layout-menu-fixed"
 	dir="ltr"
 	data-theme="theme-default"
 	data-assets-path="../assets/"
@@ -27,7 +27,7 @@
 		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
 	/>
 
-	<title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+	<title>Cards basic - UI elements | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
 	<meta name="description" content="" />
 
@@ -49,7 +49,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/css/core.css'); ?>" class="template-customizer-core-css" />
 	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/css/theme-default.css'); ?>" class="template-customizer-theme-css" />
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css'); ?>" />
-
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/libs/apex-charts/apex-charts.css') ?>" />
 	<!-- Vendors CSS -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'); ?>" />
 
@@ -65,71 +65,91 @@
 </head>
 
 <body>
-<!-- Content -->
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+	<div class="layout-container">
 
-<div class="container-xxl">
-	<div class="authentication-wrapper authentication-basic container-p-y">
-		<div class="authentication-inner">
-			<!-- Register -->
-			<div class="card">
-				<div class="card-body">
-					<!-- Logo -->
-					<div class="app-brand justify-content-center">
-						<span class="app-brand-text demo text-body fw-bolder">Administrateur</span>
-					</div>
-					<!-- /Logo -->
-					<h4 class="mb-2">Bienvenue dans garage! 👋</h4>
-					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>AccueilAdmin" method="POST">
-						<div class="mb-3">
-							<label for="mail" class="form-label">mail</label>
-							<input
-								type="text"
-								class="form-control"
-								id="mail"
-								name="mail"
-								value="<?= isset($admin['mail']) ? $admin['mail'] : '' ?>"
-								autofocus
-							/>
-						</div>
-						<div class="mb-3 form-password-toggle">
-							<div class="d-flex justify-content-between">
-								<label class="form-label" for="password">mot de passe</label>
-							</div>
-							<div class="input-group input-group-merge">
-								<input
-									type="password"
-									id="password"
-									class="form-control"
-									name="password"
-									value="<?= isset($admin['password']) ? $admin['password'] : '' ?>"
+		<?php $this->load->view('back_office/includes/header') ?>
+		<!-- Layout container -->
+		<div class="layout-page">
+			<!-- Navbar -->
 
-								/>
-								<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+
+			<!-- Content wrapper -->
+			<div class="content-wrapper">
+				<!-- Content -->
+				<div class="container-xxl flex-grow-1 container-p-y">
+					<div class="row">
+
+						<div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+							<div class="card h-100">
+								<div class="card-header d-flex align-items-center justify-content-between pb-0">
+									<div class="card-title mb-0">
+										<h5 class="m-0 me-2">non payer</h5>
+										<small class="text-muted">42.82k</small>
+									</div>
+								</div>
+								<div class="card-header d-flex align-items-center justify-content-between pb-0">
+									<div class="card-title mb-0">
+										<h5 class="m-0 me-2">Payer</h5>
+										<small class="text-muted">42.89k</small>
+									</div>
+								</div>
+
 							</div>
 						</div>
-						<div class="mb-3">
-					
-					<?php if ($this->session->flashdata('error')) { ?>
-					<div class="alert alert-danger mt-3" role="alert">
-						Failed !
+
+						<!-- boucle type voiture -->
+						<div class="col-lg-2 col-6 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="card-title d-flex align-items-start justify-content-between">
+										<div class="dropdown">
+											<button
+												class="btn p-0"
+												type="button"
+												id="cardOpt3"
+												data-bs-toggle="dropdown"
+												aria-haspopup="true"
+												aria-expanded="false"
+											>
+												<i class="bx bx-dots-vertical-rounded"></i>
+											</button>
+											<div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+												<a class="dropdown-item" href="">Detail</a>
+											</div>
+										</div>
+									</div>
+									<span class="fw-semibold d-block mb-1"><strong>4x4(type)</strong></span>
+									<h3 class="card-title mb-2">$12,628</h3>
+								</div>
+							</div>
+						</div>
 					</div>
-					<?php } ?> 
 				</div>
-						<div class="mb-3">
-							<a href="<?= base_url() ?>Auth">Se connecter en tant que Client</a>
-						</div>
-						<div class="mb-3">
-							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>
-						</div>
-					</form>
-				</div>
+
+				<!--/ Basic Bootstrap Table -->
+
+
+
+				<!-- / Content -->
+
+
+				<div class="content-backdrop fade"></div>
 			</div>
-			<!-- /Register -->
+			<!-- Content wrapper -->
+			<!-- Footer -->
+			<?php $this->load->view('includes/footer'); ?>
+			<!-- / Footer -->
 		</div>
+		<!-- / Layout page -->
 	</div>
-</div>
 
-<!-- / Content -->
+	<!-- Overlay -->
+	<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
 
 
 <!-- Core JS -->
@@ -138,7 +158,7 @@
 <script src="<?php echo base_url('assets/vendor/libs/popper/popper.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/js/bootstrap.js') ?>"></script>
 <script src="<?php echo base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') ?>"></script>
-
+<script src="<?php echo base_url('assets/vendor/libs/apex-charts/apexcharts.js'); ?>"></script>
 <script src="<?php echo base_url('assets/vendor/js/menu.js') ?>"></script>
 <!-- endbuild -->
 

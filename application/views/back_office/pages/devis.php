@@ -1,3 +1,9 @@
+<?php 
+	$this->load->model('client_model');
+	$this->load->model('slot_model');
+	$this->load->model('service_model');
+	$this->load->model('reservation_model');
+?>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -91,21 +97,33 @@
 									<th>client</th>
 									<th>slot</th>
 									<th>service</th>
+									<th>prix</th>
 									<th>payement</th>
 								</tr>
 								</thead>
 								<tbody class="table-border-bottom-0">
 								<!-- boucle -->
-									<tr>
-										<td><strong>1</strong></td>
-										<td>debut</td>
-										<td>fin</td>
-										<td>client</td>
-										<td>A</td>
-										<td>payement simple</td>
-										<!-- if mbola tsy payer -->
-										<td>
-											<form action="" method="">
+
+								<?php foreach($reservations as $row) { 
+									$client = $this->client_model->getClientById($row->id_client);
+									$service = $this->service_model->getServiceById($row->id_service);
+									$slot = $this->slot_model->getSlotById($row->id_slot);
+								?>
+
+								<tr>
+									<td><strong><?=$row->id?></strong></td>
+									<td><strong><?=$row->date_heure_debut?></strong></td>
+									<td><strong><?=$row->date_heure_fin?></strong></td>
+									<td><?=$client->numero?></td> 
+									<td><?=$slot->intitule?></td> 
+									<td><?=$row->intitule_service?></td> 
+									<td><?=$row->prix?></td> 
+									
+									<td>
+										<?php 
+										$paiement = $this->reservation_model->getPaiementByIdResa($row->id);
+										if($paiement == null) { ?>
+											<form action="<?= base_url()?>Reservation/addPaiement/<?=$row->id?>" method="post">
 												<div class="mb-3 row">
 													<div class="col-6">
 														<input class="form-control" type="date" min="0" name="date"/>
@@ -115,25 +133,18 @@
 													</div>
 												</div>
 											</form>
-										</td>
-									</tr>
-									<tr>
-										<td><strong>1</strong></td>
-										<td>debut</td>
-										<td>fin</td>
-										<td>client</td>
-										<td>A</td>
-										<td>payement simple</td>
-										<!-- if EFA payer -->
-										<td><strong>DATE payer</strong></td>
-										<!--  -->
-									</tr>
+										<?php } else {
+											echo $paiement->date_paiement;
+										} ?>
+									</td>
+									
+								</tr>
+								<?php } ?>
+
+									
 								</tbody>
 							</table>
 						</div>
-					</div>
-					<div class="row">
-						<a href="<?= base_url()?>service/ajouterService"><button class="btn btn-success">Ajouter</button></a>
 					</div>
 				</div>
 
