@@ -22,4 +22,9 @@
 		$data = explode('/',$date);
 		return "'". $data[2] . '-' . $data[1]. '-'.$data[0]."'";
 	}
+
+	function insertTravaux($name , $connexion) {
+
+	}
+	
 ?>

@@ -37,6 +37,12 @@ create table administrateur(
     password varchar(100)
 );
 
+create table paiement(
+    id int primary key  auto_increment,
+    id_reservation int references reservation(id),
+    date_paiement date\
+);
+
 insert into administrateur (nom, mail, password) values ('hamael', 'hamael', 'hamael');
 
 INSERT INTO client (numero, id_type) VALUES
