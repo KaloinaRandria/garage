@@ -101,8 +101,8 @@
 									<td><?=$row['intitule']?></td>
 									<td><?=$row['duree']?></td>
 									<td><?=$row['prix']?></td>
-									<td><a><button class="btn btn-outline-success">Modifier</button></a></td>
-									<td><a><button class="btn btn-danger">Supprimer</button></a></td>
+									<td><a href="<?= base_url()?>Service/edit/<?=$row['id']?>"><button class="btn btn-outline-success">Modifier</button></a></td>
+									<td><a href="<?= base_url()?>Service/delete/<?=$row['id']?>" onclick="return confirm('Confirmer la suppression')"><button class="btn btn-danger">Supprimer</button></a></td>
 								</tr>
 								<?php } ?>
 								</tbody>

@@ -58,24 +58,38 @@ class Service extends CI_Controller
 			$status = $this->service_model->updateService($data,$id);
 			if($status == true) {
 				$this->session->set_flashdata('success', 'Service Modifie');
-				redirect(base_url('service/edit/'.$id));
+				redirect(base_url('back_office/pages/formulaire_service_update/'.$id));
 			} else {
 				$this->session->set_flashdata('error', 'Error');
 				$this->load->view('back_office/pages/acceuil');
 			}
-		}	
+		}
+		$this->load->view('back_office/pages/acceuil');	
+	}
+
+	function delete($id) {
+		if(is_numeric($id)) {
+			$status = $this->service_model->deleteService($id);
+			if ($status == true) {
+				$this->session->set_flashdata('deleted', 'Service Supprimer');
+                redirect('AccueilAdmin');
+			} else {
+				$this->session->set_flashdata('error', 'Erreur de la suppression du service');
+                $this->load->view('back_office/pages/acceuil');
+			}
+		}
 	}
 	function ajouterService() {
 		$this->load->view('back_office/pages/formulaire_service');
 	}
 
 	function listeService() {
-		$this->load->view('back_office/pages/acceuil');
+		redirect('AccueilAdmin');
 	}
 
 	function index()
 	{
 		$data['services'] = $this->service_model->getServices();
-		$this->load->view('back_office/pages/acceuil');
+		redirect('AccueilAdmin');
 	}
 }
