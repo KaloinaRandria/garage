@@ -80,7 +80,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="" method="">
+				<form action="<?=base_url()?>service/add" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
@@ -89,26 +89,42 @@
 								<div class="mb-3 row">
 									<label for="reparation" class="form-label">Reparation</label>
 									<div class="col-md-10">
-										<input class="form-control" type="text" id="reparation" name=""/>
+										<input class="form-control" type="text" id="reparation" name="intitule"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="duree" class="form-label">Duree</label>
 									<div class="col-md-10">
-										<input class="form-control" type="time" id="duree" name=""/>
+										<input class="form-control" type="time" id="duree" name="duree"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="prix" class="form-label">Prix</label>
 									<div class="col-md-10">
-										<input class="form-control" type="number" id="prix" name="" min="0"/>
+										<input class="form-control" type="number" id="prix" name="prix" min="0"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<div class="col-3 m-auto">
-										<a><button class="btn btn-outline-primary">Valider</button></a>
+										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
+									</div>
+									<div class="col-4 m-auto">
+										<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
 									</div>
 								</div>
+								<div class="mb-3">
+					<?php if($this->session->flashdata('success')) { ?>
+					<div class="alert alert-success mt-3" role="alert">
+						Nouveau Service Ajoute
+					</div>
+					<?php } ?>
+
+					<?php if($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger mt-3" role="alert">
+						Erreur de l'insertion de Service !
+					</div>
+					<?php } ?> 
+				</div>
 							</div>
 						</div>
 					</div>
