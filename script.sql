@@ -30,4 +30,33 @@ create table reservation (
     id_client int references client(id)
 );
 
-insert into type (intitule) values ('legere'),('4x4'),('utilitaire');
+create table administrateur(
+    id int primary key auto_increment,
+    nom varchar(100),
+    mail varchar(100),
+    password varchar(100)
+);
+
+INSERT INTO client (numero, id_type) VALUES
+('CLT001', 1),
+('CLT002', 2),
+('CLT003', 3),
+('CLT004', 1),
+('CLT005', 2),
+('CLT006', 3),
+('CLT007', 1),
+('CLT008', 2),
+('CLT009', 3);
+
+INSERT INTO reservation (date_heure_debut, date_heure_fin, id_service, id_slot, id_client) VALUES
+('2024-07-15 09:00:00', '2024-07-15 10:00:00', 1, 1, 1),
+('2024-07-15 10:30:00', '2024-07-15 12:30:00', 2, 1, 2),
+('2024-07-15 13:00:00', '2024-07-15 14:30:00', 3, 2, 3),
+('2024-07-16 09:00:00', '2024-07-16 10:00:00', 1, 1, 4),
+('2024-07-16 10:30:00', '2024-07-16 12:30:00', 2, 1, 5),
+('2024-07-16 13:00:00', '2024-07-16 14:30:00', 3, 2, 6),
+('2024-07-17 09:00:00', '2024-07-17 10:00:00', 1, 1, 7),
+('2024-07-17 10:30:00', '2024-07-17 12:30:00', 2, 1, 8),
+('2024-07-17 13:00:00', '2024-07-17 14:30:00', 3, 3, 9);
+
+
