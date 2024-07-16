@@ -20,7 +20,7 @@
 			$tables = $this->db->list_tables();
 
             foreach ($tables as $table_name) {
-				if($table_name != 'administrateur' && $table_name != 'slot') {
+				if($table_name != 'administrateur' && $table_name != 'slot' && $table_name != 'v_slot_indispo') {
 					$this->deleteData($table_name);
 				}
             }

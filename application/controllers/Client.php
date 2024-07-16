@@ -36,7 +36,7 @@ class Client extends CI_Controller {
             }
             
             if ($this->client_model->insertClient($numero, $type)) {
-                redirect('client');
+                redirect('Client');
             } else {
                 show_error('Erreur lors de l\'insertion du client.');
             }
