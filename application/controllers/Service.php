@@ -58,7 +58,7 @@ class Service extends CI_Controller
 			$status = $this->service_model->updateService($data,$id);
 			if($status == true) {
 				$this->session->set_flashdata('success', 'Service Modifie');
-				redirect(base_url('service/edit/'.$id));
+				redirect(base_url('back_office/pages/formulaire_service_update/'.$id));
 			} else {
 				$this->session->set_flashdata('error', 'Error');
 				$this->load->view('back_office/pages/acceuil');
