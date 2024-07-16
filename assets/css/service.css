@@ -1,0 +1,93 @@
+:root {
+    --light-clr: #f3f3f3;
+    --dark-clr: #252525;
+    --dark-light-clr: #3f3f3f;
+    --accent-clr: #df2012;
+    --red-clr: #8a150d;
+    --grey-clr : #bebebe;
+    --bg-clr : #1a1a1a;
+    --succes-clr : #138857;
+    --primary-clr : #1272c0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--light-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--dark-clr);
+    position: relative;
+}
+
+main {
+    height: 92%;
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    overflow-y: scroll;
+}
+
+#delete {
+    color: var(--accent-clr);
+}
+
+#update {
+    color: var(--succes-clr);
+}
+
+main h1 {
+    color: var(--dark-clr);
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+main h1 span {
+    color: var(--primary-clr);
+    cursor: pointer;
+    border: 2px solid var(--primary-clr);
+    border-radius: 50%;
+}
+
+main table {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+main th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--dark-light-clr);
+}
+
+main th {
+    background-color: var(--dark-clr);
+    color: var(--light-clr);
+}
+
+main td {
+    color: var(--dark-light-clr);
+}
+
+main #action {
+    display: flex;
+    gap: 1em;
+}

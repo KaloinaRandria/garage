@@ -116,8 +116,8 @@
 					
 								<?php if ($this->session->flashdata('error')) { ?>
 								<div class="alert alert-danger mt-3" role="alert">
-									<?php echo	$this->session->flashdata('error');	?>						
-</div>
+									<?php echo	$this->session->flashdata('error');	?>
+								</div>
 								<?php } ?> 
 							</div>
 								<div class="mb-3 row">
