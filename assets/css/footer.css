@@ -1,0 +1,17 @@
+:root {
+    --light-clr: #f3f3f3;
+    --dark-clr: #252525;
+    --dark-light-clr: #3f3f3f;
+    --accent-clr: #df2012;
+    --red-clr: #8a150d;
+    --grey-clr : #bebebe;
+}
+
+footer {
+    width: 100%;
+    height: 8%;
+    background-color: var(--dark-light-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
