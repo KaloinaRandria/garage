@@ -25,20 +25,6 @@ class Slot_model extends CI_Model
 		return $query->row();
 	}
 
-	// function checkSlotLibre($dateDebut, $idService)
-	// {
-
-	// 	$slots = $this->getSlots();
-
-	// 	foreach ($slots  as $slot) {
-	// 		$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut, $idService));
-	// 		if ($query->num_rows() == 1) {
-	// 			return $query->result_array();
-	// 		}
-	// 	}
-	// 	return null;
-	// }
-
 	function searchDateFin($dateDebut, $idService)
 	{
 		$this->load->model('service_model'); // Ensure Service_model is loaded
