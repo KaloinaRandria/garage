@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -69,107 +71,65 @@
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
 
-		<?php $this->load->view('includes/header') ?>
+		<?php $this->load->view('back_office/includes/header') ?>
 		<!-- Layout container -->
 		<div class="layout-page">
 			<!-- Navbar -->
 
-			<?php $this->load->view('includes/navbar') ?>
-
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
-				<!-- Content -->
+				<!-- content -->
 
-				<div class="container-xxl flex-grow-1 container-p-y">
-
-					<!-- Card layout -->
-					<h5 class="pb-1 my-5">Card layout</h5>
-
-					<!-- Card Groups -->
-					<h6 class="pb-1 mb-4 text-muted">Card Groups</h6>
-					<div class="card-group mb-5">
-						<div class="card">
-							<img class="card-img-top" src="<?php echo base_url('assets/img/elements/4.jpg'); ?>" alt="Card image cap" />
+				<form action="<?=base_url()?>service/add" method="post">
+					<div class="col-5 mt-5 m-auto">
+						<!-- HTML5 Inputs -->
+						<div class="card mb-4">
+							<h5 class="card-header">Service</h5>
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">
-									This is a wider card with supporting text below as a natural lead-in to additional content. This
-									content is a little bit longer.
-								</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Last updated 3 mins ago</small>
-							</div>
-						</div>
-						<div class="card">
-							<img class="card-img-top" src="<?php echo base_url('assets/img/elements/5.jpg'); ?>" alt="Card image cap" />
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">
-									This card has supporting text below as a natural lead-in to additional content.
-								</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Last updated 3 mins ago</small>
-							</div>
-						</div>
-						<div class="card">
-							<img class="card-img-top" src="<?php echo base_url('assets/img/elements/1.jpg'); ?>" alt="Card image cap" />
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">
-									This is a wider card with supporting text below as a natural lead-in to additional content. This
-									card has even longer content than the first to show that equal height action.
-								</p>
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">Last updated 3 mins ago</small>
-							</div>
-						</div>
+								<div class="mb-3 row">
+									<label for="reparation" class="form-label">Reparation</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" id="reparation" name="intitule"/>
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label for="duree" class="form-label">Duree</label>
+									<div class="col-md-10">
+										<input class="form-control" type="time" id="duree" name="duree"/>
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<label for="prix" class="form-label">Prix</label>
+									<div class="col-md-10">
+										<input class="form-control" type="number" id="prix" name="prix" min="0"/>
+									</div>
+								</div>
+								<div class="mb-3 row">
+									<div class="col-3 m-auto">
+										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
+									</div>
+									<div class="col-4 m-auto">
+										<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
+									</div>
+								</div>
+								<div class="mb-3">
+					<?php if($this->session->flashdata('success')) { ?>
+					<div class="alert alert-success mt-3" role="alert">
+						Nouveau Service Ajoute
 					</div>
+					<?php } ?>
 
-					<!-- Grid Card -->
-					<h6 class="pb-1 mb-4 text-muted">Grid Card</h6>
-					<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
-						<div class="col">
-							<div class="card h-100">
-								<img class="card-img-top" src="<?php echo base_url('assets/img/elements/2.jpg'); ?>" alt="Card image cap" />
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-										This is a longer card with supporting text below as a natural lead-in to additional content.
-										This content is a little bit longer.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="card h-100">
-								<img class="card-img-top" src="<?php echo base_url('assets/img/elements/13.jpg'); ?>" alt="Card image cap" />
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-										This is a longer card with supporting text below as a natural lead-in to additional content.
-										This content is a little bit longer.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="card h-100">
-								<img class="card-img-top" src="<?php echo base_url('assets/img/elements/4.jpg'); ?>" alt="Card image cap" />
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-										This is a longer card with supporting text below as a natural lead-in to additional content.
-									</p>
-								</div>
-							</div>A
-						</div>
+					<?php if($this->session->flashdata('error')) { ?>
+					<div class="alert alert-danger mt-3" role="alert">
+						Erreur de l'insertion de Service !
 					</div>
-
-					<!--/ Card layout -->
+					<?php } ?> 
 				</div>
+							</div>
+						</div>
+					</div>
+				</form>
+
 				<!-- / Content -->
 
 
@@ -181,6 +141,7 @@
 			<!-- / Footer -->
 		</div>
 		<!-- / Layout page -->
+
 	</div>
 
 	<!-- Overlay -->
@@ -211,3 +172,4 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
+

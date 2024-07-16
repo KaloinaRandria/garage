@@ -17,7 +17,8 @@ class Auth extends CI_Controller
 
 	function index()
 	{
-		$this->load->view('front_office/login/login');
+		$data['types'] = $this->type_model->getTypes();
+		$this->load->view('front_office/login/login', $data);
 	}
 
 	function checkLogin()

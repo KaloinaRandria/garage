@@ -11,7 +11,6 @@ class Client_model extends CI_Model
 			if ($client->id_type == $type) {
 				return true;
 			} else {
-				// $this->session->set_flashdata('error', 'Type de Voiture non conforme au numero d immatriculation');
 				return false;
 			}
 		} else {

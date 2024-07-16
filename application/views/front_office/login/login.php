@@ -75,7 +75,7 @@
 				<div class="card-body">
 					<!-- Logo -->
 					<div class="app-brand justify-content-center">
-						<span class="app-brand-text demo text-body fw-bolder">Car garage</span>
+						<span class="app-brand-text demo text-body fw-bolder">Client</span>
 					</div>
 					<!-- /Logo -->
 					<h4 class="mb-2">Bienvenue a Garage 👋</h4>
@@ -112,7 +112,9 @@
 					</div>
 					<?php } ?> 
 				</div>
-						
+				<div class="mb-3">
+							<a href="<?= base_url()?>administrateur">Se connecter en tant qu'Administrateur</a>
+						</div>
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>
 						</div>
