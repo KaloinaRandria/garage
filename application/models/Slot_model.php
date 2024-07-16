@@ -25,19 +25,19 @@ class Slot_model extends CI_Model
 		return $query->row();
 	}
 
-	function checkSlotLibre($dateDebut, $idService)
-	{
+	// function checkSlotLibre($dateDebut, $idService)
+	// {
 
-		$slots = $this->getSlots();
+	// 	$slots = $this->getSlots();
 
-		foreach ($slots  as $slot) {
-			$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut, $idService));
-			if ($query->num_rows() == 1) {
-				return $query->result_array();
-			}
-		}
-		return null;
-	}
+	// 	foreach ($slots  as $slot) {
+	// 		$query = $this->db->query($this->dynamicQuery($slot['id'], $dateDebut, $idService));
+	// 		if ($query->num_rows() == 1) {
+	// 			return $query->result_array();
+	// 		}
+	// 	}
+	// 	return null;
+	// }
 
 	function searchDateFin($dateDebut, $idService)
 	{
@@ -67,32 +67,6 @@ class Slot_model extends CI_Model
 		return $dateFin;
 	}
 
-	function dynamicQuery($idSlots, $dateDebut, $idService)
-    {
-        $this->load->model('reservation_model');
-        $sql = "SELECT id_slot FROM reservation WHERE 1=1 AND DATE(date_heure_debut) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'  AND DATE(date_heure_fin) = '".  (new DateTime($dateDebut))->format('Y-m-d') ."'";
-        $reservations = $this->reservation_model->getWhereReservation(" id_slot = ". $idSlots . " AND date_heure_debut = '" .(new DateTime($dateDebut))->format('Y-m-d')."'");
-        $dateFin = $this->searchDateFin($dateDebut, $idService);
-        echo $idSlots;
-        foreach ($reservations as $reservation) {
-			
-				$sql .= " AND ('" . $dateDebut . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
-				$sql .= " AND ('" . $dateFin->format('Y-m-d H:i:s') . "' NOT BETWEEN '" . $reservation->date_heure_debut . "' AND '" . $reservation->date_heure_fin . "')";
-				$sql .= " AND ('" . $reservation->date_heure_debut . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
-				$sql .= " AND ('" . $reservation->date_heure_fin . "' NOT BETWEEN '" . $dateDebut . "' AND '" . $dateFin->format('Y-m-d H:i:s') . "')";
-				// echo "resa debut " . $reservation->date_heure_debut . "\\";
-				// echo "resa fin " . $reservation->date_heure_fin . "\\";
-           
-
-        }
-        
-        $sql .= " LIMIT 1";
-		//  echo $sql;
-		// echo $dateDebut . "\\";
-		// echo $dateFin->format('Y-m-d H:i:s') . "\\";
-		
-        return $sql;
-    }
 
 	function queryDynamic($date_heure ,$idService) {
 		$to_check = (new DateTime($date_heure))->format('Y-m-d');
