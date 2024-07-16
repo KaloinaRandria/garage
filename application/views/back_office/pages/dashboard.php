@@ -68,13 +68,40 @@
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
 	<div class="layout-container">
-
+		
 		<?php $this->load->view('back_office/includes/header') ?>
 		<!-- Layout container -->
 		<div class="layout-page">
 			<!-- Navbar -->
 
+			<div class="col-lg-6">
+			<div class="card">
+				<div class="card-body">
+				<h5 class="card-title">Pie Chart</h5>
 
+				<!-- Pie Chart -->
+				<div id="pieChart"></div>
+
+				<script>
+					document.addEventListener("DOMContentLoaded", () => {
+					new ApexCharts(document.querySelector("#pieChart"), {
+						series: [44, 55],
+						chart: {
+						height: 350,
+						type: 'pie',
+						toolbar: {
+							show: true
+						}
+						},
+						labels: ['Team A', 'Team B']
+					}).render();
+					});
+				</script>
+				<!-- End Pie Chart -->
+
+				</div>
+			</div>
+			</div>
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
 				<!-- Content -->

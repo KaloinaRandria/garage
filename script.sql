@@ -22,15 +22,6 @@ create table slot (
 );
 
 
--- create table reservation (
---     id int primary key auto_increment,
---     date_heure_debut datetime,
---     date_heure_fin datetime,
---     id_service int references service(id),
---     id_slot int references slot(id),
---     id_client int references client(id)
--- );
-
 create table reservation (
     id int primary key auto_increment,
     date_heure_debut datetime,
