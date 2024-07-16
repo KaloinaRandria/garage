@@ -110,7 +110,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<a href="<?= base_url()?>service/ajouterService"><button class="btn btn-success">Ajouter</button></a>
+						<a href="<?= base_url()?>Service/ajouterService"><button class="btn btn-success">Ajouter</button></a>
 					</div>
 				</div>
 

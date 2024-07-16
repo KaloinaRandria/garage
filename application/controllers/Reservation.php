@@ -70,6 +70,7 @@ class Reservation extends CI_Controller
         $dateFin = $dateFinObject->format('Y-m-d H:i:s');
         $numero = $this->session->userdata('numero');
         $client = $this->client_model->getClientByNum($numero);
+        $service = $this->service_model->getServiceById($id_service);
 
         if($data == -1){
             $this->session->set_flashdata('error','Aucun slot disponible pour la date et l heure demandee');
@@ -82,6 +83,8 @@ class Reservation extends CI_Controller
                 'date_heure_debut'=>$dateDebut,
                 'date_heure_fin'=>$dateFin,
                 'id_service'=>$id_service,
+                'intitule_service'=>$service->intitule,
+                'prix'=>$service->prix,
                 'id_slot'=>$data,
                 'id_client'=>$client->id
 
@@ -98,7 +101,7 @@ class Reservation extends CI_Controller
 
 
             $pdf = new DevisPdf();
-            $pdf->createDevisPdf($client, $slot, $service, $resa_data);
+            $pdf->createDevisPdf($client, $slot, $resa_data);
 
 
 
