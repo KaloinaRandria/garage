@@ -39,6 +39,11 @@
 				<div data-i18n="Analytics">Liste reservation</div>
 			</a>
 		</li>
+		<li class="menu-item">
+			<a href="<?=base_url()?>SuppData/supprimerDatabase" onclick="return confirm('Voulez vous confirmer la suppression')" class="menu-link">
+				<div data-i18n="Analytics">Supprimer les donnees</div>
+			</a>
+		</li>
 	</ul>
 </aside>
 <!-- / Menu -->
