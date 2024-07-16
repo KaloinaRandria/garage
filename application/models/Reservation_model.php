@@ -28,7 +28,8 @@ class Reservation_model extends CI_Model
 
 	function getPaiementByIdResa($idReservation) {
 		$this->db->where('id_reservation', $idReservation);
-		$query =  $this->db->get('reservation');
-		return $query->result();
+		$query = $this->db->get('paiement');
+		return $query->row(); 
 	}
+	
 }

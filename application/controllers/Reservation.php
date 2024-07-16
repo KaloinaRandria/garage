@@ -7,6 +7,7 @@
  * @property Service_model $service_model
  * @property Client_model $client_model
  * @property Reservation_model $reservation_model
+ * @property Paiement_model $paiement_model
  */
 class Reservation extends CI_Controller
 {
@@ -17,6 +18,7 @@ class Reservation extends CI_Controller
 		$this->load->model('service_model');
 		$this->load->model('client_model');
         $this->load->model('reservation_model'); 
+        $this->load->model('paiement_model'); 
         $this->load->library('DevisPdf'); 
 
 
@@ -27,6 +29,25 @@ class Reservation extends CI_Controller
 		$data['services'] = $this->service_model->getServices();
 		$this->load->view('front_office/pages/reservation', $data);
 	}
+
+    function devis()
+    {
+        $data['reservations']=$this->reservation_model->getReservations();
+        $this->load->view('back_office/pages/devis', $data);
+
+    }
+
+    function addPaiement($id_resa)
+    {
+        $date = $this->input->post('date');
+        $paiement_data = array(
+            'id_reservation' => $id_resa,
+            'date_paiement' => $date
+        );
+        $this->paiement_model->insertPaiement($paiement_data);
+        $data['reservations']=$this->reservation_model->getReservations();
+        $this->load->view('back_office/pages/devis', $data);
+    }
 
 	function verificationSlot()
 	{
@@ -83,4 +104,6 @@ class Reservation extends CI_Controller
 
         }
 	}
+
+
 }

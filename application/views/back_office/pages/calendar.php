@@ -5,19 +5,13 @@
 	<meta charset='utf-8' />
 	<title>Admin</title>
 	<script src="<?php echo base_url('assets/js/index-global.js') ?>"></script>
-	<link rel="stylesheet" href="./assets/css/headerAdmin.css">
-	<link rel="stylesheet" href="./assets/css/footerAdmin.css">
-	<link rel="stylesheet" href="./assets/css/back.css">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/headerAdmin.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/footerAdmin.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/back.css'); ?>">
 </head>
 
 <body>
-<header>
-	<nav>
-		<ul>
-			<li><a href="">Logout</a></li>
-		</ul>
-	</nav>
-</header>
+
 <main>
 	<div id='calendar'></div>
 
@@ -33,12 +27,18 @@
 				<input type="time" id="heure" required>
 			</div>
 			<div class="form-input">
-				<label for="">Name clients :</label>
-				<select name="name_clients" id="">
-					<option value="">Rabe</option>
-					<option value="">Rakoto</option>
-					<option value="">Rasoa</option>
-				</select>
+				<div class="mb-3 row">
+					<label for="defaultSelect" class="form-label">Service</label>
+					<div class="col-md-10">
+						<select id="defaultSelect" class="form-select" name="service">
+							<option></option>
+							<?php for ($i = 0; $i < count($services); $i++) { ?>
+								<option value="<?= $services[$i]['id'] ?>"><?= $services[$i]['intitule'] ?></option>
+							<?php } ?>
+
+						</select>
+					</div>
+				</div>
 			</div>
 			<div>
 				<button type="button" id="save">Ajouter</button>
@@ -47,12 +47,11 @@
 		</form>
 	</div>
 </main>
-<footer>
-	&copy 2024 - Antonio ETU002476 - Hugues ETU002477 - Diva ETU002642
-</footer>
+
 </body>
 
 <!-- POUR LES DONNEES DU CALENDRIER ET LES FONCTION DE L"INPUT -->
 <script src="<?php echo base_url('assets/js/calendar.js')?>"></script>
+<script src="<?php echo base_url('assets/js/insert.js')?>"></script>
 
 </html>

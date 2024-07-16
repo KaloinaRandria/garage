@@ -34,4 +34,6 @@ class Administrateur extends CI_Controller
 			$this->load->view('back_office/login/login');
 		}
 	}
+
+	
 }
