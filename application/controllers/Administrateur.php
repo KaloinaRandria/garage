@@ -17,6 +17,7 @@ class Administrateur extends CI_Controller
 	function index()
 	{
 		$data['admin'] = $this->administrateur_model->getAdminById(1);
+		
 		$this->load->view('back_office/login/login', $data);
 	}
 

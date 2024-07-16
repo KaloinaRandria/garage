@@ -89,20 +89,22 @@
 									<th>Reparation</th>
 									<th>Duree</th>
 									<th>Prix</th>
-									<th>Modif</th>
-									<th>Supp</th>
+									<th></th>
+									<th></th>
 								</tr>
 								</thead>
 								<tbody class="table-border-bottom-0">
 								<!-- boucle -->
+								 <?php foreach($services as $row) { ?>
 								<tr>
-									<td><strong>1</strong></td>
-									<td>Reparation</td>
-									<td>Duree</td>
-									<td>10000</td>
+									<td><strong><?=$row['id']?></strong></td>
+									<td><?=$row['intitule']?></td>
+									<td><?=$row['duree']?></td>
+									<td><?=$row['prix']?></td>
 									<td><a><button class="btn btn-outline-success">Modifier</button></a></td>
 									<td><a><button class="btn btn-danger">Supprimer</button></a></td>
 								</tr>
+								<?php } ?>
 								</tbody>
 							</table>
 						</div>

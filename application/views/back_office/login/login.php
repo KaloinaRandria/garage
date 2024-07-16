@@ -79,7 +79,7 @@
 					</div>
 					<!-- /Logo -->
 					<h4 class="mb-2">Bienvenue dans garage! 👋</h4>
-					<form id="formAuthentication" class="mb-3" action="<?php echo base_url('front_office/pages/acceuil.php'); ?>" method="POST">
+					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>accueilAdmin" method="POST">
 						<div class="mb-3">
 							<label for="mail" class="form-label">mail</label>
 							<input

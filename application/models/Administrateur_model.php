@@ -16,13 +16,14 @@
 			$query = $this->db->get('administrateur');
 			if ($query->num_rows() == 1) {
 				$admin = $query->row();
-				if ($admin->mail == $mail && $admin->password == $password) {
-					return true;
+				if ($admin->mail == $mail) {
+					if($admin->passord == $password) {
+						return true;
+					}
 				} else {
 					return false;
 				}
 			}
-			return false;
 		}
 	}
 ?>
