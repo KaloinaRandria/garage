@@ -74,34 +74,37 @@
 		<div class="layout-page">
 			<!-- Navbar -->
 
-			<div class="col-lg-6">
-			<div class="card">
-				<div class="card-body">
-				<h5 class="card-title">Pie Chart</h5>
-
-				<!-- Pie Chart -->
-				<div id="pieChart"></div>
-
-				<script>
-					document.addEventListener("DOMContentLoaded", () => {
-					new ApexCharts(document.querySelector("#pieChart"), {
-						series: [44, 55],
-						chart: {
-						height: 350,
-						type: 'pie',
-						toolbar: {
-							show: true
-						}
-						},
-						labels: ['Team A', 'Team B']
-					}).render();
-					});
-				</script>
-				<!-- End Pie Chart -->
-
-				</div>
-			</div>
-			</div>
+			  <!-- Content -->
+			  <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Pie Chart</h5>
+                                        <!-- Pie Chart -->
+                                        <div id="pieChart"></div>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", () => {
+                                                new ApexCharts(document.querySelector("#pieChart"), {
+                                                    series: [<?= $total_non_paye ?>, <?= $total_paye ?>],
+                                                    chart: {
+                                                        height: 350,
+                                                        type: 'pie',
+                                                        toolbar: {
+                                                            show: true
+                                                        }
+                                                    },
+                                                    labels: ['Non payé', 'Payé']
+                                                }).render();
+                                            });
+                                        </script>
+                                        <!-- End Pie Chart -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / Content -->
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
 				<!-- Content -->
