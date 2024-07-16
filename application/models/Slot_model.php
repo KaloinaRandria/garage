@@ -89,6 +89,7 @@ class Slot_model extends CI_Model
 			return -1;
 		
 		}
+		echo $sql;
 		return $result['id'];
 	}
 }
