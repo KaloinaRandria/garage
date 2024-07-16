@@ -79,7 +79,7 @@
 					</div>
 					<!-- /Logo -->
 					<h4 class="mb-2">Bienvenue dans garage! 👋</h4>
-					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>accueilAdmin" method="POST">
+					<form id="formAuthentication" class="mb-3" action="<?= base_url() ?>AccueilAdmin" method="POST">
 						<div class="mb-3">
 							<label for="mail" class="form-label">mail</label>
 							<input
@@ -116,7 +116,7 @@
 					<?php } ?> 
 				</div>
 						<div class="mb-3">
-							<a href="<?= base_url() ?>auth">Se connecter en tant que Client</a>
+							<a href="<?= base_url() ?>Auth">Se connecter en tant que Client</a>
 						</div>
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Se Connecter</button>

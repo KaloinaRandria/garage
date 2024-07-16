@@ -80,7 +80,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="<?=base_url()?>service/add" method="post">
+				<form action="<?=base_url()?>Service/add" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
@@ -122,7 +122,7 @@
 					</div>
 				</form>
 				<div class="col-4 m-auto">
-					<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
+					<a href="<?=base_url()?>Service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
 				</div>
 
 				<!-- / Content -->
