@@ -71,6 +71,10 @@ class Slot_model extends CI_Model
 	function queryDynamic($date_heure ,$idService) {
 		$to_check = (new DateTime($date_heure))->format('Y-m-d');
 		$fin = $this->searchDateFin($date_heure, $idService)->format('Y-m-d H:i:s');
+		$query = $this->db->query('select * from reservation');
+			if ($query->num_rows() == 0) {
+				return 1;
+			}
 		$sql = 'CREATE OR REPLACE VIEW v_slot_indispo AS
 		SELECT id_slot, MAX(date_heure_fin) AS fin
 		FROM reservation
