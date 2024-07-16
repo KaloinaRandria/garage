@@ -108,9 +108,6 @@
 									<div class="col-3 m-auto">
 										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
 									</div>
-									<div class="col-4 m-auto">
-										<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
-									</div>
 								</div>
 								<div class="mb-3">
 					<?php if($this->session->flashdata('success')) { ?>
@@ -129,6 +126,9 @@
 						</div>
 					</div>
 				</form>
+				<div class="col-4 m-auto">
+					<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
+				</div>
 
 				<!-- / Content -->
 
