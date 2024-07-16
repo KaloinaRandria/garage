@@ -37,6 +37,8 @@ create table administrateur(
     password varchar(100)
 );
 
+insert into administrateur (nom, mail, password) values ('hamael', 'hamael', 'hamael');
+
 INSERT INTO client (numero, id_type) VALUES
 ('CLT001', 1),
 ('CLT002', 2),
@@ -47,6 +49,10 @@ INSERT INTO client (numero, id_type) VALUES
 ('CLT007', 1),
 ('CLT008', 2),
 ('CLT009', 3);
+
+INSERT INTO slot (intitule) VALUES ('a'),
+                                   ('b'),
+                                   ('c');
 
 INSERT INTO reservation (date_heure_debut, date_heure_fin, id_service, id_slot, id_client) VALUES
 ('2024-07-15 09:00:00', '2024-07-15 10:00:00', 1, 1, 1),
