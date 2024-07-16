@@ -42,7 +42,7 @@ class Service extends CI_Controller
 	}
 
 	function edit($id) {
-		$data['services'] = $this->service_model->getServiceById($id);
+		$data['service'] = $this->service_model->getServiceById($id);
 		$data['id'] = $id;
 		if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$intitule = $this->input->post('intitule');
@@ -58,13 +58,14 @@ class Service extends CI_Controller
 			$status = $this->service_model->updateService($data,$id);
 			if($status == true) {
 				$this->session->set_flashdata('success', 'Service Modifie');
-				redirect(base_url('back_office/pages/formulaire_service_update/'.$id));
+				$data['services']=$this->service_model->getServices();
+				$this->load->view('back_office/pages/acceuil',$data);
 			} else {
 				$this->session->set_flashdata('error', 'Error');
 				$this->load->view('back_office/pages/acceuil');
 			}
 		}
-		$this->load->view('back_office/pages/acceuil');	
+		$this->load->view('back_office/pages/formulaire_service_update',$data);	
 	}
 
 	function delete($id) {
@@ -84,12 +85,19 @@ class Service extends CI_Controller
 	}
 
 	function listeService() {
-		redirect('AccueilAdmin');
+		$data['services']=$this->service_model->getServices();
+		// redirect('AccueilAdmin');
+		$this->load->view('back_office/pages/acceuil',$data);
 	}
 
 	function index()
 	{
 		$data['services'] = $this->service_model->getServices();
 		redirect('AccueilAdmin');
+	}
+
+	function goToFormEdit($id_service){
+		$this->load->view('back_office/pages/formulaire_service_update/'.$id_service);
+
 	}
 }
