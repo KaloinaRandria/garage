@@ -44,4 +44,6 @@ class Client_model extends CI_Model
 		$query = $this->db->get('client');
 		return $query->row();
 	}
+
+	
 }
