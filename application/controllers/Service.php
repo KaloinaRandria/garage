@@ -31,7 +31,7 @@ class Service extends CI_Controller
 			$status = $this->service_model->insertService($data);
 			if($status == true) {
 				$this->session->set_flashdata('success', 'Nouveau Service Ajoute');
-				redirect();
+				redirect('Service');
 			} else {
 				$this->session->set_flashdata('error', 'Error');
 				$this->load->view('back_office/pages/acceuil');
@@ -93,7 +93,9 @@ class Service extends CI_Controller
 	function index()
 	{
 		$data['services'] = $this->service_model->getServices();
-		redirect('AccueilAdmin');
+		// redirect('AccueilAdmin');
+		$this->load->view('back_office/pages/acceuil',$data);
+
 	}
 
 	function goToFormEdit($id_service){

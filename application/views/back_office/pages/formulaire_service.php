@@ -106,15 +106,10 @@
 								</div>
 								<div class="mb-3 row">
 									<div class="col-3 m-auto">
-										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
+										<button class="btn btn-outline-primary">Valider</button>
 									</div>
 								</div>
 								<div class="mb-3">
-					<?php if($this->session->flashdata('success')) { ?>
-					<div class="alert alert-success mt-3" role="alert">
-						Nouveau Service Ajoute
-					</div>
-					<?php } ?>
 
 					<?php if($this->session->flashdata('error')) { ?>
 					<div class="alert alert-danger mt-3" role="alert">

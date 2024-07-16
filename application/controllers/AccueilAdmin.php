@@ -17,6 +17,13 @@ class AccueilAdmin  extends CI_Controller
 	function index()
 	{
 		$data['services'] = $this->service_model->getServices();
-		$this->load->view('back_office/pages/acceuil', $data);
+		
+		// $this->load->view('back_office/pages/acceuil', $data);
+		$this->load->view('back_office/pages/dashboard');
+	}
+
+	function goToDashboard(){
+		$this->load->view('back_office/pages/dashboard');
 	}
 }
+
