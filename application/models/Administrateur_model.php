@@ -9,11 +9,20 @@
 		function getAdminById($id) {
 			$this->db->where('id', $id);
 			$query = $this->db->get('administrateur');
-			return $query->row();
+			return $query->row_array();
 		}
 
-		function checkLogAdmin() {
-
+		function checkLogAdmin($mail , $password) {
+			$query = $this->db->get('administrateur');
+			if ($query->num_rows() == 1) {
+				$admin = $query->row();
+				if ($admin->mail == $mail && $admin->password == $password) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			return false;
 		}
 	}
 ?>

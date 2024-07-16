@@ -87,6 +87,7 @@
 								class="form-control"
 								id="mail"
 								name="mail"
+								value="<?= isset($admin['mail']) ? $admin['mail'] : '' ?>"
 								autofocus
 							/>
 						</div>
@@ -100,6 +101,8 @@
 									id="password"
 									class="form-control"
 									name="password"
+									value="<?= isset($admin['password']) ? $admin['password'] : '' ?>"
+
 								/>
 								<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
 							</div>
