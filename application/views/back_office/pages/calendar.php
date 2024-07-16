@@ -12,7 +12,6 @@
 
 <body>
 <header>
-	<a href="">Mada <span>Auto</span></a>
 	<nav>
 		<ul>
 			<li><a href="">Logout</a></li>

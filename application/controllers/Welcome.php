@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('back_office/pages/calendar.php');
+		$this->load->view('back_office/pages/devis.php');
 	}
 }
