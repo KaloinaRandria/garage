@@ -15,5 +15,12 @@ class Reservation_model extends CI_Model {
 		$query = $this->db->get_where('reservation' , $condition);
 		return $query->result();
 	}
+
+	function addReservation($data) {
+        $this->db->insert('reservation', $data);
+        return $this->db->insert_id();
+    }
+
+	
 }
 ?>
