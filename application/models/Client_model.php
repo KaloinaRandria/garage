@@ -38,4 +38,18 @@ class Client_model extends CI_Model
 		$query = $this->db->get('client');
 		return $query->result_array();
 	}
+
+	function getClientByNum($numero) {
+		$this->db->where('numero',$numero);
+		$query = $this->db->get('client');
+		return $query->row();
+	}
+
+	function getClientById($id) {
+		$this->db->where('id',$id);
+        $query = $this->db->get('client');
+        return $query->row();
+	}
+
+	
 }

@@ -80,7 +80,7 @@
 			<div class="content-wrapper">
 				<!-- content -->
 
-				<form action="<?=base_url()?>service/add" method="post">
+				<form action="<?=base_url()?>service/edit/<?=$id?>" method="post">
 					<div class="col-5 mt-5 m-auto">
 						<!-- HTML5 Inputs -->
 						<div class="card mb-4">
@@ -89,45 +89,42 @@
 								<div class="mb-3 row">
 									<label for="reparation" class="form-label">Reparation</label>
 									<div class="col-md-10">
-										<input class="form-control" type="text" id="reparation" name="intitule"/>
+										<input class="form-control" type="text" id="reparation" name="intitule" value="<?= $service->intitule ?>"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="duree" class="form-label">Duree</label>
 									<div class="col-md-10">
-										<input class="form-control" type="time" id="duree" name="duree"/>
+										<input class="form-control" type="time" id="duree" name="duree" value="<?= $service->duree?>"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<label for="prix" class="form-label">Prix</label>
 									<div class="col-md-10">
-										<input class="form-control" type="number" id="prix" name="prix" min="0"/>
+										<input class="form-control" type="number" id="prix" name="prix" min="0" value="<?= $service->prix ?>"/>
 									</div>
 								</div>
 								<div class="mb-3 row">
 									<div class="col-3 m-auto">
 										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
 									</div>
+									
 								</div>
 								<div class="mb-3">
-					<?php if($this->session->flashdata('success')) { ?>
-					<div class="alert alert-success mt-3" role="alert">
-						Nouveau Service Ajoute
-					</div>
-					<?php } ?>
+									
 
-					<?php if($this->session->flashdata('error')) { ?>
-					<div class="alert alert-danger mt-3" role="alert">
-						Erreur de l'insertion de Service !
-					</div>
-					<?php } ?> 
-				</div>
+									<?php if($this->session->flashdata('error')) { ?>
+										<div class="alert alert-danger mt-3" role="alert">
+											Erreur de l'insertion de Service !
+										</div>
+									<?php } ?>
+								</div>è
 							</div>
 						</div>
 					</div>
 				</form>
 				<div class="col-4 m-auto">
-					<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
+						<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
 				</div>
 
 				<!-- / Content -->

@@ -112,6 +112,14 @@
 										</select>
 									</div>
 								</div>
+								<div class="mb-3">
+					
+								<?php if ($this->session->flashdata('error')) { ?>
+								<div class="alert alert-danger mt-3" role="alert">
+									<?php echo	$this->session->flashdata('error');	?>						
+</div>
+								<?php } ?> 
+							</div>
 								<div class="mb-3 row">
 									<div class="col-3 m-auto">
 										<a><button class="btn btn-outline-primary">Valider</button></a>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -76,59 +74,72 @@
 		<div class="layout-page">
 			<!-- Navbar -->
 
+
 			<!-- Content wrapper -->
 			<div class="content-wrapper">
-				<!-- content -->
-
-				<form action="<?=base_url()?>service/add" method="post">
-					<div class="col-5 mt-5 m-auto">
-						<!-- HTML5 Inputs -->
-						<div class="card mb-4">
-							<h5 class="card-header">Service</h5>
-							<div class="card-body">
-								<div class="mb-3 row">
-									<label for="reparation" class="form-label">Reparation</label>
-									<div class="col-md-10">
-										<input class="form-control" type="text" id="reparation" name="intitule"/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="duree" class="form-label">Duree</label>
-									<div class="col-md-10">
-										<input class="form-control" type="time" id="duree" name="duree"/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<label for="prix" class="form-label">Prix</label>
-									<div class="col-md-10">
-										<input class="form-control" type="number" id="prix" name="prix" min="0"/>
-									</div>
-								</div>
-								<div class="mb-3 row">
-									<div class="col-3 m-auto">
-										<a href=""><button class="btn btn-outline-primary">Valider</button></a>
-									</div>
-								</div>
-								<div class="mb-3">
-					<?php if($this->session->flashdata('success')) { ?>
-					<div class="alert alert-success mt-3" role="alert">
-						Nouveau Service Ajoute
-					</div>
-					<?php } ?>
-
-					<?php if($this->session->flashdata('error')) { ?>
-					<div class="alert alert-danger mt-3" role="alert">
-						Erreur de l'insertion de Service !
-					</div>
-					<?php } ?> 
-				</div>
-							</div>
+				<!-- Content -->
+				<div class="container-xxl flex-grow-1 container-p-y">
+					<div class="card mb-5">
+						<h5 class="card-header">Table Basic</h5>
+						<div class="table-responsive text-nowrap">
+							<table class="table">
+								<thead>
+								<tr>
+									<th>id</th>
+									<th>Date debut</th>
+									<th>Date fin</th>
+									<th>client</th>
+									<th>slot</th>
+									<th>service</th>
+									<th>payement</th>
+								</tr>
+								</thead>
+								<tbody class="table-border-bottom-0">
+								<!-- boucle -->
+									<tr>
+										<td><strong>1</strong></td>
+										<td>debut</td>
+										<td>fin</td>
+										<td>client</td>
+										<td>A</td>
+										<td>payement simple</td>
+										<!-- if mbola tsy payer -->
+										<td>
+											<form action="" method="">
+												<div class="mb-3 row">
+													<div class="col-6">
+														<input class="form-control" type="date" min="0" name="date"/>
+													</div>
+													<div class="col-6">
+														<input class="btn btn-outline-primary" type="submit" value="valider"/>
+													</div>
+												</div>
+											</form>
+										</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>debut</td>
+										<td>fin</td>
+										<td>client</td>
+										<td>A</td>
+										<td>payement simple</td>
+										<!-- if EFA payer -->
+										<td><strong>DATE payer</strong></td>
+										<!--  -->
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-				</form>
-				<div class="col-4 m-auto">
-					<a href="<?=base_url()?>service/listeService"><button class="btn btn-outline-secondary">Nos Services</button></a>
+					<div class="row">
+						<a href="<?= base_url()?>service/ajouterService"><button class="btn btn-success">Ajouter</button></a>
+					</div>
 				</div>
+
+				<!--/ Basic Bootstrap Table -->
+
+
 
 				<!-- / Content -->
 
@@ -141,7 +152,6 @@
 			<!-- / Footer -->
 		</div>
 		<!-- / Layout page -->
-
 	</div>
 
 	<!-- Overlay -->
@@ -172,4 +182,3 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
-
